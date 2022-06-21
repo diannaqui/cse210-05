@@ -26,6 +26,7 @@ class GrowingCycle(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
+        
         self._counter = self._counter + 1
 
         if self._counter == constants.FRAME_RATE:

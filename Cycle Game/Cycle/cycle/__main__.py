@@ -7,6 +7,7 @@ from game.casting.cycle import Cycle
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
+from game.scripting.growing_cycle import GrowingCycle
 from game.scripting.handle_collisions_action import HandleCollisionsAction
 from game.scripting.draw_actors_action import DrawActorsAction
 from game.directing.director import Director
@@ -32,6 +33,7 @@ def main():
     script = Script()
     script.add_action("input", ControlActorsAction(keyboard_service))
     script.add_action("update", MoveActorsAction())
+    script.add_action("update", GrowingCycle())
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))
     

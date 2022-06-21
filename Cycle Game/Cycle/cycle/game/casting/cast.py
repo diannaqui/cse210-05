@@ -36,9 +36,11 @@ class Cast:
         """
         results = []
         if group in self._actors.keys():
-            results = self._actors[group].copy()
+            results = self._actors[group]
         return results
-    
+        
+       
+
     def get_all_actors(self):
         """Gets all of the actors in the cast.
         

@@ -12,7 +12,7 @@ class Director:
         
         Args:
             video_service (VideoService): An instance of VideoService.
-        """
+        """ 
         self._video_service = video_service
         
     def start_game(self, cast, script):

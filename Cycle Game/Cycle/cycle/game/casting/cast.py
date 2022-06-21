@@ -73,3 +73,4 @@ class Cast:
         """
         if group in self._actors:
             self._actors[group].remove(actor)
+            

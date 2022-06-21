@@ -52,12 +52,12 @@ class Cycle(Actor):
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self):
-        x = int(constants.MAX_X / 2)
+        x = int(constants.MAX_X / 5)
         y = int(constants.MAX_Y / 2)
 
         for i in range(constants.CYCLE_LENGTH):
-            position = Point(x - i * constants.CELL_SIZE, y)
-            velocity = Point(1 * constants.CELL_SIZE, 0)
+            position = Point(x , y + i * constants.CELL_SIZE)
+            velocity = Point(0, constants.CELL_SIZE * -1)
             text = "8" if i == 0 else "#"
             color = constants.YELLOW if i == 0 else constants.GREEN
             

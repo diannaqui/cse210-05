@@ -38,19 +38,20 @@ class ControlActorsAction(Action):
         # left
         if self._keyboard_service.is_key_down('a'):
             self._direction_1 = Point(-constants.CELL_SIZE, 0)
+            cycle_1.grow_tail()
         
         # right
         if self._keyboard_service.is_key_down('d'):
             self._direction_1 = Point(constants.CELL_SIZE, 0)
-        
+            cycle_1.grow_tail()
         # up
         if self._keyboard_service.is_key_down('w'):
             self._direction_1 = Point(0, -constants.CELL_SIZE)
-        
+            cycle_1.grow_tail()
         # down
         if self._keyboard_service.is_key_down('s'):
             self._direction_1 = Point(0, constants.CELL_SIZE)
-        
+            cycle_1.grow_tail()
         cycle_1.turn_head(self._direction_1)
 
         
@@ -60,17 +61,17 @@ class ControlActorsAction(Action):
         # left
         if self._keyboard_service.is_key_down('j'):
             self._direction_2 = Point(-constants.CELL_SIZE, 0)
-        
+            cycle_2.grow_tail()
         # right
         if self._keyboard_service.is_key_down('l'):
             self._direction_2 = Point(constants.CELL_SIZE, 0)
-        
+            cycle_2.grow_tail()
         # up
         if self._keyboard_service.is_key_down('i'):
             self._direction_2 = Point(0, -constants.CELL_SIZE)
-        
+            cycle_2.grow_tail()
         # down
         if self._keyboard_service.is_key_down('k'):
             self._direction_2 = Point(0, constants.CELL_SIZE)
-        
+            cycle_2.grow_tail()
         cycle_2.turn_head(self._direction_2)

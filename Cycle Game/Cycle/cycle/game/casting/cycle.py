@@ -35,7 +35,7 @@ class Cycle(Actor):
     def get_head(self):
         return self._segments[0]
 
-    def grow_tail(self, number_of_segments):
+    def grow_tail(self):
         # for i in range(number_of_segments):
         tail = self._segments[-1]
         velocity = tail.get_velocity()

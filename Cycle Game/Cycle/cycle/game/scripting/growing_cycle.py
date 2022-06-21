@@ -26,11 +26,12 @@ class GrowingCycle(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        self._counter = self._counter + 1
+        pass
+        # self._counter = self._counter + 1
 
-        if self._counter == constants.FRAME_RATE:
-            self._counter = 0
-            cycles = cast.get_actors("cycles")
+        # if self._counter == constants.FRAME_RATE:
+        #     self._counter = 0
+        #     cycles = cast.get_actors("cycles")
 
-            for cycle in cycles:
-                cycle.grow_tail(1)
+        #     for cycle in cycles:
+        #         cycle.grow_tail(1)

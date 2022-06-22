@@ -53,12 +53,30 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        cycle = cast.get_first_actor("cycles")
-        head = cycle.get_segments()[0]
-        segments = cycle.get_segments()[1:]
+        # cycle = cast.get_first_actor("cycles")
+        # head = cycle.get_segments()[0]
+        # segments = cycle.get_segments()[1:]
         
+        # for segment in segments:
+        #     if head.get_position().equals(segment.get_position()):
+        #         self._is_game_over = True
+
+        cycles = cast.get_actors("cycles")
+
+        cycle_1 = cycles[0]
+        cycle_2 = cycles[1]
+
+        head_1 = cycle_1.get_segments()[0]
+        head_2 = cycle_2.get_segments()[0]
+        segments1 = cycle_1.get_segments()[1:]
+        segments2 = cycle_2.get_segments()[1:]
+
+        segments = segments1 + segments2
+    
         for segment in segments:
-            if head.get_position().equals(segment.get_position()):
+            if head_1.get_position().equals(segment.get_position()) or head_1.get_position().equals(head_2.get_position()):
+                self._is_game_over = True
+            elif head_2.get_position().equals(segment.get_position()) or head_2.get_position().equals(head_1.get_position()):
                 self._is_game_over = True
         
     def _handle_game_over(self, cast):

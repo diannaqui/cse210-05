@@ -59,11 +59,11 @@ class Cycle(Actor):
     
     def _prepare_body(self):
         if self._cycle_color == 'green':
-            x = int(constants.MAX_X / 5)
+            x = int(constants.MAX_X / 4)
             y = int(constants.MAX_Y / 2)
             new_color = constants.GREEN
         if self._cycle_color == 'red':
-            x = int(constants.MAX_X / 1.3)
+            x = int((constants.MAX_X / 4)*3)
             y = int(constants.MAX_Y / 2)
             new_color = constants.RED
 

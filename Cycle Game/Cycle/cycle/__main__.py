@@ -22,8 +22,12 @@ def main():
     cast = Cast()
     cast.add_actor("cycles", Cycle('green'))
     cast.add_actor("cycles", Cycle('red'))
-    cast.add_actor("scores", Score())
+    cast.add_actor("scores", Score('Green Cycle'))
+    score_red = Score('Red Cycle')
+    cast.add_actor("scores", score_red)
+    score_red.set_position(Point(constants.MAX_X - 150, 0))
    
+
     # start the game
     keyboard_service = KeyboardService()
     video_service = VideoService()

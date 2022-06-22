@@ -37,22 +37,25 @@ class HandleCollisionsAction(Action):
         """
 
         cycles = cast.get_actors("cycles")
+        scores = cast.get_actors("scores")
 
         cycle_1 = cycles[0]
         cycle_2 = cycles[1]
 
         head_1 = cycle_1.get_segments()[0]
         head_2 = cycle_2.get_segments()[0]
-        segments1 = cycle_1.get_segments()[1:]
-        segments2 = cycle_2.get_segments()[1:]
+        segments_1 = cycle_1.get_segments()[1:]
+        segments_2 = cycle_2.get_segments()[1:]
 
-        segments = segments1 + segments2
-    
-        for segment in segments:
-            if head_1.get_position().equals(segment.get_position()) or head_1.get_position().equals(head_2.get_position()):
+        for segment in segments_1:
+            if head_2.get_position().equals(segment.get_position()):
                 self._is_game_over = True
-            elif head_2.get_position().equals(segment.get_position()) or head_2.get_position().equals(head_1.get_position()):
+                scores[0].add_points(1)
+        for segment in segments_2:
+            if head_1.get_position().equals(segment.get_position()):
                 self._is_game_over = True
+                scores[1].add_points(1)
+
         
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the cycle white if the game is over.

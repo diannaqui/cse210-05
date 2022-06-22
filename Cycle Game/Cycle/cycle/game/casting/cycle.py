@@ -9,8 +9,8 @@ class Cycle(Actor):
     
     The responsibility of Cycle is to move itself.
 
-                        # Attributes:
-                        #     _points (int): The number of points the food is worth.
+    Attributes:
+                
     """
     def __init__(self, color_red_green):
         super().__init__()
@@ -36,13 +36,10 @@ class Cycle(Actor):
         return self._segments[0]
 
     def grow_tail(self):
-        # for i in range(number_of_segments):
         tail = self._segments[-1]
         velocity = tail.get_velocity()
         offset = velocity.reverse()
         position = tail.get_position().add(offset)
-        
-
         
         segment = Actor()
         segment.set_position(position)

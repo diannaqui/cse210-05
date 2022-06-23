@@ -80,11 +80,17 @@ class HandleCollisionsAction(Action):
                 for segment in segments:
                     segment.set_color(constants.WHITE)
 
+            scores = cast.get_actors("scores")
+            if scores[0].get_points() >= 5:
+                winner = scores[0].get_name()
+            else:
+                winner = scores[1].get_name()
+
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
             position = Point(x, y)
 
             message = Actor()
-            message.set_text("Game Over!")
+            message.set_text(f"Game Over! The winner is {winner}")
             message.set_position(position)
             cast.add_actor("messages", message)

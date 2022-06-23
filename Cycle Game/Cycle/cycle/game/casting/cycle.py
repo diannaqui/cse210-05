@@ -37,19 +37,20 @@ class Cycle(Actor):
 
     def grow_tail(self):
         tail = self._segments[-1]
-        velocity = tail.get_velocity()
-        offset = velocity.reverse()
-        position = tail.get_position().add(offset)
+        if tail.get_color() != constants.WHITE:
+            velocity = tail.get_velocity()
+            offset = velocity.reverse()
+            position = tail.get_position().add(offset)
 
-        segment = Actor()
-        segment.set_position(position)
-        segment.set_velocity(velocity)
-        segment.set_text("#")
-        if self._cycle_color == 'green':
-            segment.set_color(constants.GREEN)
-        if self._cycle_color == 'red':
-            segment.set_color(constants.RED)
-        self._segments.append(segment)
+            segment = Actor()
+            segment.set_position(position)
+            segment.set_velocity(velocity)
+            segment.set_text("#")
+            if self._cycle_color == 'green':
+                segment.set_color(constants.GREEN)
+            if self._cycle_color == 'red':
+                segment.set_color(constants.RED)
+            self._segments.append(segment)
 
     def turn_head(self, velocity):
         self._segments[0].set_velocity(velocity)

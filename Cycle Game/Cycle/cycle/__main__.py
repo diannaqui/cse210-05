@@ -17,7 +17,7 @@ from game.shared.point import Point
 
 
 def main():
-    
+
     # create the cast
     cast = Cast()
     cast.add_actor("cycles", Cycle('green'))
@@ -26,7 +26,7 @@ def main():
     score_red = Score('Red Cycle')
     cast.add_actor("scores", score_red)
     score_red.set_position(Point(constants.MAX_X - 150, 0))
-   
+
 
     # start the game
     keyboard_service = KeyboardService()
@@ -38,7 +38,7 @@ def main():
     script.add_action("update", GrowingCycle())
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))
-    
+
     director = Director(video_service)
     director.start_game(cast, script)
 

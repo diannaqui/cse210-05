@@ -6,11 +6,11 @@ from game.shared.point import Point
 class Cycle(Actor):
     """
     A long limbless reptile.
-    
+
     The responsibility of Cycle is to move itself.
 
     Attributes:
-                
+
     """
     def __init__(self, color_red_green):
         super().__init__()
@@ -40,7 +40,7 @@ class Cycle(Actor):
         velocity = tail.get_velocity()
         offset = velocity.reverse()
         position = tail.get_position().add(offset)
-        
+
         segment = Actor()
         segment.set_position(position)
         segment.set_velocity(velocity)
@@ -53,14 +53,14 @@ class Cycle(Actor):
 
     def turn_head(self, velocity):
         self._segments[0].set_velocity(velocity)
-    
+
     def _prepare_body(self):
         if self._cycle_color == 'green':
             x = int(constants.MAX_X / 4)
             y = int(constants.MAX_Y / 2)
             new_color = constants.GREEN
         if self._cycle_color == 'red':
-            x = int((constants.MAX_X / 4)*3)
+            x = int((constants.MAX_X / 4) * 3)
             y = int(constants.MAX_Y / 2)
             new_color = constants.RED
 
@@ -69,10 +69,14 @@ class Cycle(Actor):
             velocity = Point(0, constants.CELL_SIZE * -1)
             text = "8" if i == 0 else "#"
             color = constants.YELLOW if i == 0 else new_color
-            
+
             segment = Actor()
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text(text)
             segment.set_color(color)
             self._segments.append(segment)
+
+    def reset(self):
+        self._segments = []
+        self._prepare_body()

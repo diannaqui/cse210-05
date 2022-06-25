@@ -1,4 +1,5 @@
 import constants
+import time
 from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
@@ -28,8 +29,7 @@ class HandleCollisionsAction(Action):
         if not self._is_game_over:
             self._handle_segment_collision(cast)
             self._handle_game_over(cast)
-        # self._handle_segment_collision(cast)
-
+        
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the cycle collides with one of its segments.
 
@@ -51,6 +51,7 @@ class HandleCollisionsAction(Action):
         for segment in segments_1:
             if head_2.get_position().equals(segment.get_position()):
                 scores[0].add_points(1)
+                time.sleep(1)
                 if scores[0].get_points() >= 5:
                     self._is_game_over = True
                 else:
@@ -59,6 +60,7 @@ class HandleCollisionsAction(Action):
         for segment in segments_2:
             if head_1.get_position().equals(segment.get_position()):
                 scores[1].add_points(1)
+                time.sleep(1)
                 if scores[1].get_points() >= 5:
                     self._is_game_over = True
                 else:

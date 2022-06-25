@@ -1,4 +1,5 @@
 # Cycle Game
+---
 Cycle is a game where the players try to cut each other off using cycles that leave a trail behind them.
 
 ## Getting Started
@@ -16,17 +17,27 @@ project folder. Select the main module inside the hunter folder and click the "r
 
 ## Rules of the Game
 ---
+```
 Cycle is played according to the following rules.
+```
 
 * Players can move up, down, left and right...
   * Player one moves using the W, S, A and D keys.
   * Player two moves using the I, K, J and L keys.
-* Each player's trail grows as they move.
+* The tail of each cycle grows when it changes direction.
 * Players try to maneuver so the opponent collides with their trail.
 * If a player collides with their opponent's trail...
-  * A "game over" message is displayed in the middle of the screen.
-  * The cycles turn white.
-  * Players keep moving and turning but don't run into each other.
+  * The other player gets a point.
+    * The winner is the first to have a score of five.
+    * If both reach five points at the same time, the winner will be the GREEN CYCLE.
+    * A "game over" message is displayed in the middle of the screen.
+    * The name of the winner is display.
+    * The cycles turn white.
+    * Players keep moving and turning.
+* If the players collides the heads of their cycles one in front of the other
+    * They both get a point.
+* If the heads of their cycles collide from the side
+    * The first to touch the other's body with the head loses.
 
 ## Project Structure
 ---
